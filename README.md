@@ -1,2 +1,3 @@
 # hong-kong-ctb-eta
-trying to make a real time bus eta for hong kong citybus 
+hi i am trying to make a real time arrival for buses in hong kong
+
