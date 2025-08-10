@@ -1,6 +1,6 @@
 :root {
     --primary-color: #E32139; /* Citybus red */
-    --secondary-color: #F8F8F8;
+    --secondary-color: #f8f8f8;
     --text-color: #333;
     --border-color: #ddd;
 }
@@ -31,7 +31,7 @@ h1 {
 
 .search-box {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr;
     gap: 15px;
     margin-bottom: 25px;
 }
@@ -63,7 +63,6 @@ button {
     cursor: pointer;
     font-size: 1em;
     align-self: flex-end;
-    height: 40px;
 }
 
 button:hover {
@@ -77,41 +76,60 @@ button:hover {
     color: #666;
 }
 
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.eta-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.destination-group {
+    margin-bottom: 25px;
+}
+
 .eta-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .eta-card {
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 15px;
+    border-left: 3px solid var(--primary-color);
+    padding: 10px;
     background: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .eta-time {
-    font-size: 1.2em;
     font-weight: bold;
     color: var(--primary-color);
+    font-size: 1.2em;
 }
 
 .eta-minutes {
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin: 5px 0;
 }
 
 .eta-remark {
     font-size: 0.9em;
     color: #666;
-    margin-bottom: 5px;
-}
-
-.eta-dir {
-    font-size: 0.8em;
-    color: #888;
 }
 
 .error {
@@ -121,12 +139,8 @@ button:hover {
     border-radius: 4px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .search-box {
-        grid-template-columns: 1fr;
-    }
-    
-    button {
-        width: 100%;
+        grid-template-columns: 1fr 1fr auto;
     }
 }
